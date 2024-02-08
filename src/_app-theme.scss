@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+
+@use 'sass:map';
+
+@mixin theme($theme) {
+  $primary: map.get($theme, primary);
+  $accent: map.get($theme, accent);
+  $warn: map.get($theme, warn);
+  $background: map.get($theme, background);
+  $foreground: map.get($theme, foreground);
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    background-color: mat.get-color-from-palette($background, background);
+    color: mat.get-color-from-palette($primary, default-contrast);
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+}

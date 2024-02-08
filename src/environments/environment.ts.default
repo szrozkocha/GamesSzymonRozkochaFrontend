@@ -1,0 +1,15 @@
+export const environment = {
+  production: true,
+  backend: "",
+  auth: {
+    domain: "",
+    clientId: "",
+    audience: "",
+    httpInterceptor: {
+      allowedList: ["/api/.*"],
+    },
+    authorizationParams: {
+      redirect_uri: window.location.origin
+    }
+  },
+};

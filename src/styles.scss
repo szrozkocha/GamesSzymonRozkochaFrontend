@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './app-theme';
+
+$primary-light: mat.define-palette(mat.$indigo-palette);
+$accent-light: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$theme-light: mat.define-light-theme((
+  color: (
+    primary: $primary-light,
+    accent: $accent-light
+  ),
+  typography: mat.define-typography-config(),
+));
+
+$primary-dark: mat.define-palette(mat.$pink-palette);
+$accent-dark: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
+$theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $primary-dark,
+    accent: $accent-dark
+  ),
+  typography: mat.define-typography-config(),
+));
+
+
+@include mat.core();
+
+@include mat.all-component-themes($theme-dark);
+@include app-theme.theme($theme-dark);
+
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
